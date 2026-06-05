@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
+  --color-background: var(--bg-color);
+  --color-foreground: var(--fg-color);
 
-  --color-card: #141a1f;
+  --color-card: var(--card-color);
 
-  --color-primary: #20b2a6;
-  --color-primary-foreground: #ffffff;
+  --color-primary: var(--primary-color);
+  --color-primary-foreground: var(--primary-fg);
 
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
+  --color-secondary: var(--secondary-color);
+  --color-secondary-foreground: var(--secondary-fg);
 
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
+  --color-muted: var(--muted-color);
+  --color-muted-foreground: var(--muted-fg);
 
-  --color-border: #242b32;
+  --color-border: var(--border-color);
 
   --radius: 0.75rem;
 
   --color-highlight: #f5a623;
-  --color-surface: #1a2329;
+  --color-surface: var(--surface-color);
+}
+
+:root {
+  --bg-color: #ffffff;
+  --fg-color: #0f1418;
+  --card-color: #f8f9fa;
+  --primary-color: #20b2a6;
+  --primary-fg: #ffffff;
+  --secondary-color: #e9ecef;
+  --secondary-fg: #20b2a6;
+  --muted-color: #f8f9fa;
+  --muted-fg: #6c757d;
+  --border-color: #dee2e6;
+  --surface-color: #f8f9fa;
+}
+
+.dark {
+  --bg-color: #0f1418;
+  --fg-color: #f0f2f5;
+  --card-color: #141a1f;
+  --primary-color: #20b2a6;
+  --primary-fg: #ffffff;
+  --secondary-color: #1f2830;
+  --secondary-fg: #20b2a6;
+  --muted-color: #252e37;
+  --muted-fg: #7a8491;
+  --border-color: #242b32;
+  --surface-color: #1a2329;
 }
 
 @layer base {
@@ -33,8 +61,8 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--bg-color);
+    color: var(--fg-color);
     font-family: "Inter", sans-serif;
   }
 
@@ -45,26 +73,26 @@
 
 @layer components {
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    background-color: color-mix(in srgb, var(--surface-color) 50%, transparent);
     backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-color) 50%, transparent);
   }
 
   .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    background-color: color-mix(in srgb, var(--surface-color) 80%, transparent);
     backdrop-filter: blur(24px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
   }
 
   .glow-text {
     text-shadow: 0 0 30px
-      color-mix(in srgb, var(--color-primary) 50%, transparent);
+      color-mix(in srgb, var(--primary-color) 50%, transparent);
   }
 
   .glow-border {
     box-shadow: 0 0 20px
-        color-mix(in srgb, var(--color-primary) 20%, transparent),
-      inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+        color-mix(in srgb, var(--primary-color) 20%, transparent),
+      inset 0 0 20px color-mix(in srgb, var(--primary-color) 5%, transparent);
   }
 }
 
@@ -178,7 +206,7 @@
 
   .timeline-glow {
     box-shadow: 0 0 40px
-        color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+        color-mix(in srgb, var(--primary-color) 35%, transparent),
+      0 0 80px color-mix(in srgb, var(--primary-color) 25%, transparent);
   }
 }

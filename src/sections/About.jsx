@@ -1,17 +1,17 @@
-import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import { Brain, BrickWall, Code2, Lightbulb, Rocket, Users } from "lucide-react";
 
 const highlights = [
   {
-    icon: Code2,
-    title: "Clean Code",
+    icon: Brain,
+    title: "Clean Logic",
     description:
-      "Writing maintainable, scalable code that stands the test of time.",
+      "Simple, readable, maintainable solutions.",
   },
   {
-    icon: Rocket,
-    title: "Performance",
+    icon: BrickWall,
+    title: "Foundations First",
     description:
-      "Optimizing for speed and delivering lightning-fast user experiences.",
+      "Strong basics before advanced abstractions.",
   },
   {
     icon: Users,
@@ -20,15 +20,15 @@ const highlights = [
   },
   {
     icon: Lightbulb,
-    title: "Innovation",
+    title: "Curiosity",
     description:
-      "Staying ahead with the latest technologies and best practices.",
+      "Always learning, always improving.",
   },
 ];
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-32 relative overflow-hidden glow-border animate-fade-in animation-delay-200 " >
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
@@ -40,49 +40,41 @@ export const About = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building the future,
-              <span className="font-serif italic font-normal text-white">
+              Learning deeply. 
+              <span className="font-serif italic font-normal text-foreground">
                 {" "}
-                one component at a time.
+                Building steadily.
               </span>
             </h2>
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I'm a software engineering student with a strong interest in game development, web technologies, and information systems. 
+                I combine academic rigor with real-world experience through my apprenticeship as an ERP Project Assistant.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                My background covers both technical development and project-oriented thinking: understanding needs, 
+                structuring solutions, and delivering something usable. I value clarity over complexity and fundamentals over hype.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+              
               </p>
             </div>
 
             <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
               <p className="text-lg font-medium italic text-foreground">
-                "My mission is to create digital experiences that are not just
-                functional, but truly delightful — products that users love to
-                use and developers love to maintain."
+              My goal is simple: build useful software, improve continuously, and move toward complex systems with confidence.
               </p>
             </div>
           </div>
 
           {/* Right Column - Hilights */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          
+          <div className="grid sm:grid-cols-2 gap-6   " >
             {highlights.map((item, idx) => (
               <div
                 key={idx}
-                className="glass p-6 rounded-2xl animate-fade-in"
+                className="glass p-6 rounded-2xl animate-fade-in   "
                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">

@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/components/ThemeContext";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -12,6 +13,7 @@ const navLinks = [
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,7 @@ export const Navbar = () => {
           href="#"
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
-          PM<span className="text-primary">.</span>
+          Fouad BENAMARA<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -50,6 +52,19 @@ export const Navbar = () => {
               </a>
             ))}
           </div>
+
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full glass hover:bg-surface transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun size={20} className="text-yellow-500 transition-transform duration-300 hover:rotate-12" />
+            ) : (
+              <Moon size={20} className="text-blue-500 transition-transform duration-300 hover:-rotate-12" />
+            )}
+          </button>
         </div>
 
         {/* CTA Button */}
@@ -80,6 +95,25 @@ export const Navbar = () => {
                 {link.label}
               </a>
             ))}
+
+            {/* Theme Toggle Button Mobile */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center gap-2 p-2 rounded-full glass hover:bg-surface transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Sun size={20} className="text-yellow-500 transition-transform duration-300 hover:rotate-12" />
+                  Light Mode
+                </>
+              ) : (
+                <>
+                  <Moon size={20} className="text-blue-500 transition-transform duration-300 hover:-rotate-12" />
+                  Dark Mode
+                </>
+              )}
+            </button>
 
             <Button onClick={() => setIsMobileMenuOpen(false)}>
               Contact Me

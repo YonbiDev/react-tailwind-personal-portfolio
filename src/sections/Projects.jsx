@@ -2,11 +2,11 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "The lost friends",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
-    image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
+      "In Another Story: The Lost Friends Un action-platformer 2D vibrant sur Android. Suivez REY dans une odyssée temporelle pour sauver ses amis disparus. Entre humour (merci les lunettes de soleil !) et combats intenses, explorez un monde en pixel art rempli de secrets. Sauriez-vous refermer le livre ?",
+    image: "/projects/project1.jpg",
+    tags: ["C#", "Unity", "NodeJS"],
     link: "#",
     github: "#",
   },
@@ -53,7 +53,7 @@ export const Projects = () => {
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             Projects that
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal text-foreground">
               {" "}
               make an impact.
             </span>
