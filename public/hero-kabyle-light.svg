@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#f7fffd"/>
+      <stop offset="1" stop-color="#eef7ff"/>
+    </linearGradient>
+    <radialGradient id="teal" cx="22%" cy="28%" r="44%">
+      <stop stop-color="#20b2a6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#20b2a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gold" cx="82%" cy="20%" r="32%">
+      <stop stop-color="#f5a623" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#f5a623" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="amazigh" width="176" height="176" patternUnits="userSpaceOnUse">
+      <path d="M88 18 128 88 88 158 48 88Z" fill="none" stroke="#0f766e" stroke-width="5" opacity="0.22"/>
+      <path d="M88 43V133M58 88h60M70 58l36 60M106 58 70 118" stroke="#c47c00" stroke-width="4" opacity="0.22" stroke-linecap="round"/>
+      <circle cx="88" cy="88" r="7" fill="#0f766e" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="2400" height="1500" fill="url(#bg)"/>
+  <rect width="2400" height="1500" fill="url(#teal)"/>
+  <rect width="2400" height="1500" fill="url(#gold)"/>
+  <rect x="1280" y="-100" width="1200" height="900" fill="url(#amazigh)" opacity="0.78" transform="rotate(8 1880 370)"/>
+  <rect x="-260" y="860" width="1320" height="620" fill="url(#amazigh)" opacity="0.55" transform="rotate(-8 420 1170)"/>
+  <g opacity="0.28" stroke="#0f766e" fill="none">
+    <path d="M0 1010H2400" stroke-width="2"/>
+    <path d="M-120 1120H2520M-260 1240H2660M-420 1380H2820" stroke-width="1.4" opacity="0.55"/>
+    <path d="M220 1500 980 1010M620 1500 1160 1010M1040 1500 1300 1010M1460 1500 1440 1010M1880 1500 1580 1010M2300 1500 1760 1010" opacity="0.42"/>
+  </g>
+  <g opacity="0.38">
+    <path d="M290 350h274l78 78h240" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="564" cy="350" r="8" fill="#0f766e"/>
+    <path d="M1530 285h226l70 70h310" stroke="#2563eb" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="1756" cy="285" r="8" fill="#2563eb"/>
+  </g>
+</svg>

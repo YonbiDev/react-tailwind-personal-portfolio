@@ -1,15 +1,33 @@
-import { Download } from "lucide-react";
+export const AnimatedBorderButton = ({
+  children,
+  href,
+  className = "",
+  size = "lg",
+  variant = "outline",
+  ...props
+}) => {
+  const Component = href ? "a" : "button";
+  const sizeClasses = {
+    sm: "px-6 py-3 text-sm",
+    lg: "px-8 py-4 text-lg",
+  };
+  const variantClasses = {
+    outline: "bg-transparent border-border text-foreground hover:border-primary/50",
+    solid:
+      "border-primary bg-primary text-primary-foreground shadow-xl shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/45",
+  };
 
-export const AnimatedBorderButton = ({ children }) => {
   return (
-    <button
-      className="relative bg-transparent border border-border 
-        text-foreground hover:border-primary/50 transition-all 
+    <Component
+      href={href}
+      className={`relative inline-flex items-center justify-center border 
+        transition-all 
         duration-1000 focus:outline-none focus-visible:ring-2 
         focus-visible:ring-primary focus-visible:ring-offset-2 
         disabled:opacity-50 disabled:cursor-not-allowed group 
-        px-8 py-4 text-lg font-medium rounded-full overflow-visible 
-        animated-border"
+        font-medium rounded-full overflow-visible 
+        animated-border ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      {...props}
     >
       {/* Animated SVG Border */}
       <svg
@@ -33,6 +51,6 @@ export const AnimatedBorderButton = ({ children }) => {
       <span className="relative z-10 flex items-center justify-center gap-2">
         {children}
       </span>
-    </button>
+    </Component>
   );
 };

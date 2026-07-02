@@ -1,18 +1,19 @@
-import { Button } from "@/components/Button";
+import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useTheme } from "@/components/ThemeContext";
+import { useLanguage } from "@/components/language";
+import { useTheme } from "@/components/theme";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#projects", labelKey: "projects" },
+  { href: "#experience", labelKey: "experience" },
+  { href: "#testimonials", labelKey: "proof" },
 ];
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -28,7 +29,9 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
-        isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
+        isScrolled
+          ? "glass-strong py-3"
+          : `bg-transparent py-5 ${theme === "dark" ? "text-white" : "text-[#07131a]"}`
       }  z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
@@ -48,10 +51,18 @@ export const Navbar = () => {
                 key={index}
                 className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
               >
-                {link.label}
+                {t.nav[link.labelKey]}
               </a>
             ))}
           </div>
+
+          <button
+            onClick={toggleLanguage}
+            className="rounded-full border border-border bg-surface px-3 py-2 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary"
+            aria-label="Toggle language"
+          >
+            {language === "en" ? "FR" : "EN"}
+          </button>
 
           {/* Theme Toggle Button */}
           <button
@@ -69,7 +80,14 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button size="sm">Contact Me</Button>
+          <AnimatedBorderButton
+            size="sm"
+            variant="solid"
+            href="#contact"
+            className="min-w-32"
+          >
+            {t.nav.contact}
+          </AnimatedBorderButton>
         </div>
 
         {/* Mobile Menu Button */}
@@ -92,9 +110,17 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg text-muted-foreground hover:text-foreground py-2"
               >
-                {link.label}
+                {t.nav[link.labelKey]}
               </a>
             ))}
+
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center justify-center rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+              aria-label="Toggle language"
+            >
+              {language === "en" ? "Francais" : "English"}
+            </button>
 
             {/* Theme Toggle Button Mobile */}
             <button
@@ -105,19 +131,24 @@ export const Navbar = () => {
               {theme === 'dark' ? (
                 <>
                   <Sun size={20} className="text-yellow-500 transition-transform duration-300 hover:rotate-12" />
-                  Light Mode
+                  {t.nav.light}
                 </>
               ) : (
                 <>
                   <Moon size={20} className="text-blue-500 transition-transform duration-300 hover:-rotate-12" />
-                  Dark Mode
+                  {t.nav.dark}
                 </>
               )}
             </button>
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
-              Contact Me
-            </Button>
+            <AnimatedBorderButton
+              href="#contact"
+              variant="solid"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full"
+            >
+              {t.nav.contact}
+            </AnimatedBorderButton>
           </div>
         </div>
       )}

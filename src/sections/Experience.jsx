@@ -1,100 +1,76 @@
+import { useLanguage } from "@/components/language";
+import { SectionAmbient } from "@/components/SectionAmbient";
+
 const experiences = [
   {
-    period: "2022 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Tech Innovators Inc.",
-    description:
-      "Leading frontend architecture for a suite of fintech products. Implemented micro-frontend architecture, reduced bundle size by 40%, and mentored a team of 5 developers.",
-    technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
+    logo: "/experience/lingenheld.png",
+    logoAlt: "Groupe Lingenheld",
+    technologies: ["Business Central", "Dynamics NAV", "C#", "SQL", "PowerShell"],
     current: true,
   },
   {
-    period: "2020 — 2022",
-    role: "Frontend Engineer",
-    company: "Digital Solutions Co.",
-    description:
-      "Built and maintained multiple React applications for enterprise clients. Introduced automated testing practices that improved code coverage to 85%.",
-    technologies: ["React", "Redux", "Jest", "Cypress"],
+    logo: "/experience/uha.png",
+    logoAlt: "Universite de Haute-Alsace",
+    technologies: ["MIAGE", "Java", "PHP", "Databases", "Management"],
     current: false,
   },
   {
-    period: "2019 — 2020",
-    role: "Junior Developer",
-    company: "StartUp Labs",
-    description:
-      "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
-    technologies: ["React", "Node.js", "MongoDB", "AWS"],
+    logo: "/experience/roval.png",
+    logoAlt: "Roval Cosmetique",
+    technologies: ["ASP.NET", "C#", "SQL Server", "Azure", "Crystal Reports"],
     current: false,
   },
   {
-    period: "2018 — 2019",
-    role: "Freelance Developer",
-    company: "Self-Employed",
-    description:
-      "Delivered custom web solutions for small businesses and startups. Built 15+ websites and applications, handling everything from design to deployment.",
-    technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
+    logo: "/experience/unity.png",
+    logoAlt: "Unity freelance game development",
+    technologies: ["Unity", "C#", "Google Play", "APIs", "Git"],
     current: false,
   },
 ];
 
 export const Experience = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-32 relative overflow-hidden">
-      <div
-        className="absolute top-1/2 left-1/4 w-96
-       h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2"
-      />
+      <SectionAmbient variant="experience" />
+      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span
-            className="text-secondary-foreground text-sm
-           font-medium tracking-wider uppercase animate-fade-in"
-          >
-            Career Journey
+          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
+            {t.experience.eyebrow}
           </span>
-          <h2
-            className="text-4xl md:text-5xl font-bold
-           mt-4 mb-6 animate-fade-in animation-delay-100
-            text-secondary-foreground"
-          >
-            Experience that{" "}
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
+            {t.experience.title}{" "}
             <span className="font-serif italic font-normal text-foreground">
-              {" "}
-              speaks volumes.
+              {t.experience.accent}
             </span>
           </h2>
 
-          <p
-            className="text-muted-foreground
-           animate-fade-in animation-delay-200"
-          >
-            A timeline of my professional growth, from curious beginner to
-            senior engineer leading teams and building products at scale.
+          <p className="text-muted-foreground animate-fade-in animation-delay-200">
+            {t.experience.intro}
           </p>
         </div>
 
-        {/* Timeline */}
         <div className="relative">
           <div className="timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(32,178,166,0.8)]" />
 
-          {/* Experience Items */}
           <div className="space-y-12">
-            {experiences.map((exp, idx) => (
+            {experiences.map((exp, idx) => {
+              const [period, role, company, description] = t.experience.items[idx];
+              return (
               <div
-                key={idx}
+                key={`${role}-${period}`}
                 className="relative grid md:grid-cols-2 gap-8 animate-fade-in"
                 style={{ animationDelay: `${(idx + 1) * 150}ms` }}
               >
-                {/* Timeline Dot */}
                 <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
                   {exp.current && (
                     <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
                   )}
                 </div>
 
-                {/* Content */}
                 <div
                   className={`pl-8 md:pl-0 ${
                     idx % 2 === 0
@@ -102,26 +78,35 @@ export const Experience = () => {
                       : "md:col-start-2 md:pl-16"
                   }`}
                 >
-                  <div
-                    className={`glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500`}
-                  >
+                  <div className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500">
+                    <div
+                      className={`mb-5 flex items-center gap-4 ${
+                        idx % 2 === 0 ? "md:justify-end" : ""
+                      }`}
+                    >
+                      <img
+                        src={exp.logo}
+                        alt={exp.logoAlt}
+                        className="h-24 w-full max-w-72 rounded-xl border border-border/60 bg-white object-contain p-3 shadow-lg shadow-black/10 sm:h-28"
+                      />
+                    </div>
                     <span className="text-sm text-primary font-medium">
-                      {exp.period}
+                      {period}
                     </span>
-                    <h3 className="text-xl font-semibold mt-2">{exp.role}</h3>
-                    <p className="text-muted-foreground">{exp.company}</p>
+                    <h3 className="text-xl font-semibold mt-2">{role}</h3>
+                    <p className="text-muted-foreground">{company}</p>
                     <p className="text-sm text-muted-foreground mt-4">
-                      {exp.description}
+                      {description}
                     </p>
                     <div
                       className={`flex flex-wrap gap-2 mt-4 ${
                         idx % 2 === 0 ? "md:justify-end" : ""
                       }`}
                     >
-                      {exp.technologies.map((tech, techIdx) => (
+                      {exp.technologies.map((tech) => (
                         <span
-                          key={techIdx}
-                          className="px-3 py-1 bg-surface text-xs rounded-full text-muted-foreground"
+                          key={tech}
+                          className="rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground shadow-lg shadow-primary/25"
                         >
                           {tech}
                         </span>
@@ -130,7 +115,8 @@ export const Experience = () => {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

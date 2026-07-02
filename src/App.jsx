@@ -1,6 +1,5 @@
 import { Navbar } from "@/layout/Navbar";
 import { Hero } from "@/sections/Hero";
-import { About } from "@/sections/About";
 import { Projects } from "@/sections/Projects";
 import { Experience } from "@/sections/Experience";
 import { Testimonials } from "@/sections/Testimonials";
@@ -9,17 +8,18 @@ import { Footer } from "./layout/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-hidden">
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Projects />
-        <About />
         <Experience />
         <Testimonials />
         <Contact />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }
