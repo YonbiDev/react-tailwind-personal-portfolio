@@ -129,7 +129,7 @@ const copy = {
         ],
         [
           "May 2023 - August 2023",
-          "ASP.NET Web Developer",
+          "ASP.NET Web Developer Intern",
           "Roval Cosmetique - Flers",
           "Developed an ASP.NET C# web application for business data entry, tracking and traceability, with SQL Server data structure, Azure migration preparation, cloud deployment and Crystal Reports usage.",
         ],
@@ -328,7 +328,7 @@ const copy = {
         ],
         [
           "Mai 2023 - août 2023",
-          "Développeur ASP.NET",
+          "Stage Développeur ASP.NET",
           "Roval Cosmétique - Flers",
           "Développement d'une solution ASP.NET C# pour la saisie, le suivi et la traçabilité de données métier, avec SQL Server, préparation migration Azure, déploiement cloud et Crystal Reports.",
         ],

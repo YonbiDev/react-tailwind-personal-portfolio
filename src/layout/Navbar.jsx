@@ -82,9 +82,9 @@ export const Navbar = () => {
         <div className="hidden md:block">
           <AnimatedBorderButton
             size="sm"
-            variant="solid"
+            variant="solidPremium"
             href="#contact"
-            className="min-w-32"
+            className="min-w-36"
           >
             {t.nav.contact}
           </AnimatedBorderButton>
@@ -143,7 +143,7 @@ export const Navbar = () => {
 
             <AnimatedBorderButton
               href="#contact"
-              variant="solid"
+              variant="solidPremium"
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full"
             >

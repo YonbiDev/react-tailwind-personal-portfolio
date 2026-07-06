@@ -5,18 +5,21 @@ const experiences = [
   {
     logo: "/experience/lingenheld.png",
     logoAlt: "Groupe Lingenheld",
+    href: "https://www.lingenheld.fr/",
     technologies: ["Business Central", "Dynamics NAV", "C#", "SQL", "PowerShell"],
     current: true,
   },
   {
     logo: "/experience/uha.png",
     logoAlt: "Universite de Haute-Alsace",
+    href: "https://www.uha.fr/fr/index.html",
     technologies: ["MIAGE", "Java", "PHP", "Databases", "Management"],
     current: false,
   },
   {
     logo: "/experience/roval.png",
     logoAlt: "Roval Cosmetique",
+    href: "https://www.anjac.com/societe/roval/",
     technologies: ["ASP.NET", "C#", "SQL Server", "Azure", "Crystal Reports"],
     current: false,
   },
@@ -84,17 +87,44 @@ export const Experience = () => {
                         idx % 2 === 0 ? "md:justify-end" : ""
                       }`}
                     >
-                      <img
-                        src={exp.logo}
-                        alt={exp.logoAlt}
-                        className="h-24 w-full max-w-72 rounded-xl border border-border/60 bg-white object-contain p-3 shadow-lg shadow-black/10 sm:h-28"
-                      />
+                      {exp.href ? (
+                        <a
+                          href={exp.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Open ${exp.logoAlt}`}
+                          className="block w-full max-w-84 rounded-xl transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/15"
+                        >
+                          <img
+                            src={exp.logo}
+                            alt={exp.logoAlt}
+                            className="h-28 w-full rounded-xl border border-border/60 bg-white object-contain p-4 shadow-lg shadow-black/10 sm:h-32"
+                          />
+                        </a>
+                      ) : (
+                        <img
+                          src={exp.logo}
+                          alt={exp.logoAlt}
+                          className="h-28 w-full max-w-84 rounded-xl border border-border/60 bg-white object-contain p-4 shadow-lg shadow-black/10 sm:h-32"
+                        />
+                      )}
                     </div>
                     <span className="text-sm text-primary font-medium">
                       {period}
                     </span>
                     <h3 className="text-xl font-semibold mt-2">{role}</h3>
-                    <p className="text-muted-foreground">{company}</p>
+                    {exp.href ? (
+                      <a
+                        href={exp.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-muted-foreground transition hover:text-primary"
+                      >
+                        {company}
+                      </a>
+                    ) : (
+                      <p className="text-muted-foreground">{company}</p>
+                    )}
                     <p className="text-sm text-muted-foreground mt-4">
                       {description}
                     </p>

@@ -13,8 +13,12 @@ export const AnimatedBorderButton = ({
   };
   const variantClasses = {
     outline: "bg-transparent border-border text-foreground hover:border-primary/50",
+    outlineFill:
+      "bg-transparent border-border text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-xl hover:shadow-primary/30",
     solid:
       "border-primary bg-primary text-primary-foreground shadow-xl shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/45",
+    solidPremium:
+      "animated-border-solid border-primary bg-primary text-primary-foreground shadow-xl shadow-primary/35 hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-transparent hover:text-primary hover:shadow-primary/20",
   };
 
   return (
@@ -29,6 +33,22 @@ export const AnimatedBorderButton = ({
         animated-border ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       {...props}
     >
+      {variant === "solidPremium" && (
+        <span aria-hidden="true" className="button-stars">
+          {[1, 2, 3, 4, 5, 6].map((star) => (
+            <svg
+              key={star}
+              className={`button-star button-star-${star}`}
+              viewBox="0 0 24 24"
+            >
+              <path
+                className="button-star-fill"
+                d="M12 1.8 14.8 9l7.4 3-7.4 3L12 22.2 9.2 15l-7.4-3 7.4-3L12 1.8Z"
+              />
+            </svg>
+          ))}
+        </span>
+      )}
       {/* Animated SVG Border */}
       <svg
         className="absolute left-0 top-0 w-full h-full pointer-events-none download-cv-border"
